@@ -30,18 +30,14 @@ namespace TicketSystem.Windows
 
         private void editButton_Click(object sender, EventArgs e)
         {
-           // string firstname = userListView.SelectedItems.ToString();
+            string firstname = userListView.SelectedItems[0].SubItems[0].Text;
+            string lastname = userListView.SelectedItems[0].SubItems[1].Text;
+            string username = userListView.SelectedItems[0].SubItems[2].Text;
+            string email = userListView.SelectedItems[0].SubItems[3].Text;
+            string typ = userListView.SelectedItems[0].SubItems[4].Text;
 
-            //Console.WriteLine(firstname);
-
-
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            foreach (object item in userListView.Items)
-            {
-                sb.Append(item.ToString());
-                sb.Append(" ");
-            }
-            MessageBox.Show(sb.ToString());
+            NewUserWindow nuw = new NewUserWindow(firstname, lastname, username, email, typ);
+            nuw.ShowDialog();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

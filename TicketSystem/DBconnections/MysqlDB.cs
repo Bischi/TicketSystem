@@ -194,12 +194,27 @@ namespace TicketSystem.DBconnections
             }
         }
 
-        public override void updateUser(int userID)
+        public override bool updateUser(int userID, string fname, string lname, string username, string passwd, string email, string typ)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sql_cmd.CommandText = "Select id from tbl_typ where description ='" + typ + "'";
+                if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
+                int typID = Convert.ToInt32(sql_cmd.ExecuteScalar());
+
+                sql_cmd.CommandText = "UPDATE `tsystem`.`tbl_user` SET `fname` = '"+fname+"',`lname` = '"+lname+"' ,`username` = '"+username+"',`password` = '"+passwd+"',`email` = '"+email+"',`tbl_typ_id` = "+typID+" WHERE `id` = "+userID;
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                //writeLine into ex
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public override void deleteUser(int userID)
+        public override bool deleteUser(int userID)
         {
             throw new NotImplementedException();
         }

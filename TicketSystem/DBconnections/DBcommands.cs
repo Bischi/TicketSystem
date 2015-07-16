@@ -11,8 +11,8 @@ namespace TicketSystem.DBconnections
         public abstract List<string[]> getUserData(string uname);
         public abstract List<string[]> getUsers();
         public abstract bool addUser(string fname, string lname, string username, string passwd, string email, string typ); 
-        public abstract void deleteUser(int userID); 
-        public abstract void updateUser(int userID); 
+        public abstract bool deleteUser(int userID); 
+        public abstract bool updateUser(int userID, string fname, string lname, string username, string passwd, string email, string typ); 
 
         public abstract bool addTicket(int userID, string title, string content, string date, string time, string priority, string area, string status);
         public abstract bool deleteTicket(int ticketID); 
