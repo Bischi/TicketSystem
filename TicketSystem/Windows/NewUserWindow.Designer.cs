@@ -237,6 +237,7 @@
             this.cancleButton.Text = "Cancel";
             this.cancleButton.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
             // 
             // addUserButton
             // 

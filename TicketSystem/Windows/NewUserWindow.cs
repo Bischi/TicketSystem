@@ -23,7 +23,7 @@ namespace TicketSystem.Windows
             List<string[]> userdata = LoginWindow.connection.getUserData(username);
             this.userID = Convert.ToInt32(userdata[0][0]);
 
-            typCB.SelectedText = typ;
+            typCB.Text = typ;
             fnameTextBox.Text = fname;
             lnameTextBox.Text = lname;
             usernameTextBox.Text = username;
@@ -120,6 +120,11 @@ namespace TicketSystem.Windows
             {
                 throw;
             }
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

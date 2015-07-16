@@ -216,7 +216,21 @@ namespace TicketSystem.DBconnections
 
         public override bool deleteUser(int userID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_ticket_has_tbl_user`WHERE tbl_user_id =" + userID + "";
+                if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
+                sql_cmd.ExecuteNonQuery();
+                sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_user`WHERE id =" + userID + "";
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                //writeLine into ex
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         #endregion
 
