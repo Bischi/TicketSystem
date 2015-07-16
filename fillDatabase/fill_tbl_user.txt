@@ -1,0 +1,1 @@
+INSERT INTO `tsystem`.`tbl_user`(`fname`,`lname`,`username`,`password`,`email`,`tbl_typ_id`)VALUES("Martin", "Bischof", "admin", "098f6bcd4621d373cade4e832627b4f6", "bischi@live.at", 1);
