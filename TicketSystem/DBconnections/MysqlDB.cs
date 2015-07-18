@@ -194,14 +194,67 @@ namespace TicketSystem.DBconnections
             }
         }
 
-        public override void updateUser(int userID)
+        public override bool updateUser(int userID, string fname, string lname, string username, string passwd, string email, string typ)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sql_cmd.CommandText = "Select id from tbl_typ where description ='" + typ + "'";
+                if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
+                int typID = Convert.ToInt32(sql_cmd.ExecuteScalar());
+
+                sql_cmd.CommandText = "UPDATE `tsystem`.`tbl_user` SET `fname` = '"+fname+"',`lname` = '"+lname+"' ,`username` = '"+username+"',`password` = '"+passwd+"',`email` = '"+email+"',`tbl_typ_id` = "+typID+" WHERE `id` = "+userID;
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                //writeLine into ex
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public override void deleteUser(int userID)
+        public override bool deleteUser(int userID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sql_cmd = new MySqlCommand(null, sql_conn);
+                sql_cmd.CommandText = "SELECT tbl_ticket_id from tbl_ticket_has_tbl_user where tbl_user_id ="+userID;
+                if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
+
+                List<int> ticketList = new List<int>();
+
+                datareader = sql_cmd.ExecuteReader();
+                int tID;
+
+                while (datareader.Read())
+                {
+                    tID = datareader.GetInt32(0);
+                    ticketList.Add(tID);
+                }
+
+                sql_conn.Close(); //because instead the datareader would block the next command
+
+                sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_ticket_has_tbl_user` WHERE tbl_user_id =" + userID + "";
+                if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
+                sql_cmd.ExecuteNonQuery();
+
+                foreach (int t in ticketList)
+                {
+                    sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_ticket` WHERE id =" + t + "";
+                    sql_cmd.ExecuteNonQuery();
+                }
+
+                sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_user`WHERE id =" + userID + "";
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                //writeLine into ex
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         #endregion
 
@@ -433,6 +486,7 @@ namespace TicketSystem.DBconnections
                 sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_ticket_has_tbl_user`WHERE tbl_ticket_id =" + ticketID + "";
                 if (sql_conn.State != System.Data.ConnectionState.Open) sql_conn.Open();
                 sql_cmd.ExecuteNonQuery();
+
                 sql_cmd.CommandText = "DELETE FROM `tsystem`.`tbl_ticket`WHERE id =" + ticketID + "";
                 sql_cmd.ExecuteNonQuery();
                 sql_conn.Close();

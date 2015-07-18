@@ -13,10 +13,30 @@ namespace TicketSystem.Windows
 {
     public partial class NewUserWindow : Form
     {
+        int userID;
+
+        public NewUserWindow(string fname, string lname, string username, string email, string typ)
+        {
+            InitializeComponent();
+            fillTypCB();
+
+            List<string[]> userdata = LoginWindow.connection.getUserData(username);
+            this.userID = Convert.ToInt32(userdata[0][0]);
+
+            typCB.Text = typ;
+            fnameTextBox.Text = fname;
+            lnameTextBox.Text = lname;
+            usernameTextBox.Text = username;
+            emailTextBox.Text = email;
+            addUserButton.Visible = false;
+
+        }
+
         public NewUserWindow()
         {
             InitializeComponent();
             fillTypCB();
+            updateButton.Visible = false;
         }
 
         private void fillTypCB()
@@ -63,6 +83,48 @@ namespace TicketSystem.Windows
                 sb.Append(hash[i].ToString("X2"));
             }
             return sb.ToString();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string fname = fnameTextBox.Text;
+                string lname = lnameTextBox.Text;
+                string username = usernameTextBox.Text;
+                string password;
+
+                if (passwordTextBox.Text != "")
+                {
+                    password = passwordTextBox.Text;
+                    password = CalculateMD5Hash(password);
+                }
+                else
+                {
+                    MessageBox.Show("Please set a password!");
+                    return;
+                }
+                string email = emailTextBox.Text;
+                string typ = typCB.Text;
+            
+                bool addOK = LoginWindow.connection.updateUser(userID, fname, lname, username, password, email, typ);
+
+                if (addOK == true)
+                {
+                    MessageBox.Show("User was updated");
+                    this.Close();
+                }
+                else MessageBox.Show("User could not be updated!", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void cancleButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

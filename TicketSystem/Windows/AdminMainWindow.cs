@@ -93,13 +93,13 @@ namespace TicketSystem.Windows
         {
             ListUserWindow luw = new ListUserWindow();
             luw.ShowDialog();
+            this.TicketsflowLayoutPanel.Controls.Clear();
+            getTicketList();
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
     }
 }

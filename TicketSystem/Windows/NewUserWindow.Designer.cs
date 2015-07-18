@@ -30,8 +30,13 @@
         {
             ManiXButton.Office2010White office2010White1 = new ManiXButton.Office2010White();
             ManiXButton.Office2010Green office2010Green1 = new ManiXButton.Office2010Green();
+            ManiXButton.Office2010Yellow office2010Yellow1 = new ManiXButton.Office2010Yellow();
             this.hellolabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.lnameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,13 +44,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.fnameTextBox = new System.Windows.Forms.TextBox();
-            this.lnameTextBox = new System.Windows.Forms.TextBox();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.typCB = new System.Windows.Forms.ComboBox();
             this.cancleButton = new ManiXButton.XButton();
             this.addUserButton = new ManiXButton.XButton();
+            this.updateButton = new ManiXButton.XButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +92,39 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(383, 175);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailTextBox.Location = new System.Drawing.Point(91, 119);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(289, 20);
+            this.emailTextBox.TabIndex = 5;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passwordTextBox.Location = new System.Drawing.Point(91, 90);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(289, 20);
+            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.UseSystemPasswordChar = true;
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usernameTextBox.Location = new System.Drawing.Point(91, 61);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(289, 20);
+            this.usernameTextBox.TabIndex = 3;
+            // 
+            // lnameTextBox
+            // 
+            this.lnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lnameTextBox.Location = new System.Drawing.Point(91, 32);
+            this.lnameTextBox.Name = "lnameTextBox";
+            this.lnameTextBox.Size = new System.Drawing.Size(289, 20);
+            this.lnameTextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -160,52 +195,19 @@
             // fnameTextBox
             // 
             this.fnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fnameTextBox.Location = new System.Drawing.Point(92, 3);
+            this.fnameTextBox.Location = new System.Drawing.Point(91, 3);
             this.fnameTextBox.Name = "fnameTextBox";
-            this.fnameTextBox.Size = new System.Drawing.Size(288, 20);
+            this.fnameTextBox.Size = new System.Drawing.Size(289, 20);
             this.fnameTextBox.TabIndex = 1;
-            // 
-            // lnameTextBox
-            // 
-            this.lnameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnameTextBox.Location = new System.Drawing.Point(92, 32);
-            this.lnameTextBox.Name = "lnameTextBox";
-            this.lnameTextBox.Size = new System.Drawing.Size(288, 20);
-            this.lnameTextBox.TabIndex = 2;
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usernameTextBox.Location = new System.Drawing.Point(92, 61);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(288, 20);
-            this.usernameTextBox.TabIndex = 3;
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.passwordTextBox.Location = new System.Drawing.Point(92, 90);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(288, 20);
-            this.passwordTextBox.TabIndex = 4;
-            this.passwordTextBox.UseSystemPasswordChar = true;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTextBox.Location = new System.Drawing.Point(92, 119);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(288, 20);
-            this.emailTextBox.TabIndex = 5;
             // 
             // typCB
             // 
             this.typCB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.typCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typCB.FormattingEnabled = true;
-            this.typCB.Location = new System.Drawing.Point(92, 148);
+            this.typCB.Location = new System.Drawing.Point(91, 148);
             this.typCB.Name = "typCB";
-            this.typCB.Size = new System.Drawing.Size(288, 21);
+            this.typCB.Size = new System.Drawing.Size(289, 21);
             this.typCB.TabIndex = 6;
             // 
             // cancleButton
@@ -235,6 +237,7 @@
             this.cancleButton.Text = "Cancel";
             this.cancleButton.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.cancleButton_Click);
             // 
             // addUserButton
             // 
@@ -265,11 +268,41 @@
             this.addUserButton.UseVisualStyleBackColor = true;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
+            // updateButton
+            // 
+            office2010Yellow1.BorderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(72)))), ((int)(((byte)(161)))));
+            office2010Yellow1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(135)))), ((int)(((byte)(228)))));
+            office2010Yellow1.ButtonMouseOverColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
+            office2010Yellow1.ButtonMouseOverColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
+            office2010Yellow1.ButtonMouseOverColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(225)))), ((int)(((byte)(137)))));
+            office2010Yellow1.ButtonMouseOverColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(249)))), ((int)(((byte)(224)))));
+            office2010Yellow1.ButtonNormalColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(161)))), ((int)(((byte)(8)))));
+            office2010Yellow1.ButtonNormalColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            office2010Yellow1.ButtonNormalColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(161)))), ((int)(((byte)(8)))));
+            office2010Yellow1.ButtonNormalColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(191)))), ((int)(((byte)(45)))));
+            office2010Yellow1.ButtonSelectedColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
+            office2010Yellow1.ButtonSelectedColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
+            office2010Yellow1.ButtonSelectedColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(117)))));
+            office2010Yellow1.ButtonSelectedColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(216)))), ((int)(((byte)(107)))));
+            office2010Yellow1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            office2010Yellow1.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            office2010Yellow1.TextColor = System.Drawing.Color.White;
+            this.updateButton.ColorTable = office2010Yellow1;
+            this.updateButton.Location = new System.Drawing.Point(15, 225);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(206, 34);
+            this.updateButton.TabIndex = 9;
+            this.updateButton.Text = "Update";
+            this.updateButton.Theme = ManiXButton.Theme.MSOffice2010_Yellow;
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // NewUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 271);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.cancleButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.addUserButton);
@@ -304,5 +337,6 @@
         private System.Windows.Forms.TextBox fnameTextBox;
         private System.Windows.Forms.ComboBox typCB;
         private ManiXButton.XButton cancleButton;
+        private ManiXButton.XButton updateButton;
     }
 }
