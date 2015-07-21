@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
@@ -19,7 +12,8 @@ namespace TicketSystem
         public LoginWindow()
         {
             InitializeComponent();
-            this.checkNetworkConnection();
+            //this.checkNetworkConnection();
+            this.usethelocalDB();
         }
 
         private void checkNetworkConnection()
